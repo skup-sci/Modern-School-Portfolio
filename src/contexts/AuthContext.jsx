@@ -1,5 +1,15 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import { mockLogin } from '../utils/mockApi';
+import { 
+  auth, 
+  db 
+} from '../firebase';
+import { 
+  signInWithEmailAndPassword, 
+  createUserWithEmailAndPassword, 
+  signOut, 
+  onAuthStateChanged
+} from 'firebase/auth';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 const AuthContext = createContext(null);
 
@@ -7,60 +17,99 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Listen for auth state changes
   useEffect(() => {
-    // Check for stored session
-    try {
-      const storedUser = localStorage.getItem('user');
-      if (storedUser) {
-        setUser(JSON.parse(storedUser));
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+      if (firebaseUser) {
+        try {
+          // Get user data from Firestore including role
+          const userDoc = await getDoc(doc(db, 'users', firebaseUser.uid));
+          
+          if (userDoc.exists()) {
+            // Combine auth user with additional data from Firestore
+            setUser({
+              uid: firebaseUser.uid,
+              email: firebaseUser.email,
+              ...userDoc.data()
+            });
+          } else {
+            // User doesn't have a profile in Firestore yet
+            setUser({
+              uid: firebaseUser.uid,
+              email: firebaseUser.email,
+              role: 'guest' // Default role
+            });
+          }
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+          setUser(null);
+        }
+      } else {
+        setUser(null);
       }
-    } catch (error) {
-      console.error('Error retrieving stored user:', error);
-    } finally {
       setLoading(false);
-    }
+    });
+
+    return () => unsubscribe();
   }, []);
 
-  const login = async (email, password, role) => {
+  const login = async (email, password) => {
     try {
-      // Use the mock API instead of fetch
-      const response = await mockLogin(email, password, role);
-      
-      if (response.success) {
-        setUser(response.data);
-        localStorage.setItem('user', JSON.stringify(response.data));
-        return true;
-      } else {
-        console.error('Login failed:', response.error);
-        return false;
-      }
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      return { success: true, user: userCredential.user };
     } catch (error) {
-      console.error('Login error:', error);
-      return false;
+      console.error("Login error:", error.message);
+      return { success: false, error: error.message };
     }
   };
 
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem('user');
+  const signup = async (email, password, userData) => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      
+      // Create user profile in Firestore
+      await setDoc(doc(db, 'users', userCredential.user.uid), {
+        role: userData.role || 'user',
+        name: userData.name || '',
+        createdAt: new Date().toISOString(),
+        ...userData
+      });
+      
+      return { success: true, user: userCredential.user };
+    } catch (error) {
+      console.error("Signup error:", error.message);
+      return { success: false, error: error.message };
+    }
   };
 
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      return { success: true };
+    } catch (error) {
+      console.error("Logout error:", error.message);
+      return { success: false, error: error.message };
+    }
+  };
   const isAuthenticated = () => !!user;
   const isAdmin = () => user?.role === 'admin';
   const isTeacher = () => user?.role === 'teacher';
   const isStudent = () => user?.role === 'student';
-
+    // Provide auth context
   return (
-    <AuthContext.Provider value={{
-      user,
-      loading,
-      login,
-      logout,
-      isAuthenticated,
-      isAdmin,
-      isTeacher,
-      isStudent
-    }}>
+    <AuthContext.Provider 
+      value={{ 
+        user, 
+        loading, 
+        login, 
+        logout, 
+        signup,
+        isAuthenticated,
+        isAdmin,
+        isTeacher,
+        isStudent
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

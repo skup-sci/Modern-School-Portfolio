@@ -1,0 +1,10 @@
+# Allow all web crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /login
+
+# Sitemap location
+Sitemap: https://yourschool.example.com/sitemap.xml

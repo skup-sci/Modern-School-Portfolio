@@ -177,9 +177,7 @@ const About = () => {
                 </p>
               </div>
             </div>
-          </div>
-
-          {/* Leadership */}
+          </div>          {/* Leadership */}
           <div className="mb-8">
             <h3 className="text-xl md:text-2xl font-bold mb-6 border-l-4 border-amber-600 pl-3">
               {isHindi ? 'हमारा नेतृत्व' : 'Our Leadership'}
@@ -211,6 +209,163 @@ const About = () => {
                   {isHindi ? 'रविकांत पटेल' : 'Ravikant Patel'}
                 </h4>
                 <p className="text-gray-600">{isHindi ? 'अध्यक्ष' : 'Chairman'}</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Infrastructure */}
+          <div className="mb-8">
+            <h3 className="text-xl md:text-2xl font-bold mb-6 border-l-4 border-amber-600 pl-3">
+              {isHindi ? 'हमारा बुनियादी ढांचा' : 'Our Infrastructure'}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-white rounded-lg overflow-hidden shadow-sm border border-amber-100">
+                <div className="h-48 overflow-hidden">
+                  <img src="/images/classroom.jpg" alt="Classroom" className="w-full h-full object-cover" />
+                </div>
+                <div className="p-5">
+                  <h4 className="text-lg font-semibold text-amber-800 mb-2">
+                    {isHindi ? 'आधुनिक कक्षाएं' : 'Modern Classrooms'}
+                  </h4>
+                  <p className="text-gray-700">
+                    {isHindi 
+                      ? 'हमारी सभी कक्षाएं अच्छी तरह से रोशनी और हवादार हैं, जो सीखने के लिए एक सकारात्मक वातावरण प्रदान करती हैं।' 
+                      : 'All our classrooms are well-lit and ventilated, providing a positive environment for learning.'}
+                  </p>
+                </div>
+              </div>
+              
+              <div className="bg-white rounded-lg overflow-hidden shadow-sm border border-amber-100">
+                <div className="h-48 overflow-hidden">
+                  <img src="/images/Gallery5.jpg" alt="Computer Lab" className="w-full h-full object-cover" />
+                </div>
+                <div className="p-5">
+                  <h4 className="text-lg font-semibold text-amber-800 mb-2">
+                    {isHindi ? 'कंप्यूटर प्रयोगशाला' : 'Computer Laboratory'}
+                  </h4>
+                  <p className="text-gray-700">
+                    {isHindi 
+                      ? 'आधुनिक कंप्यूटर और इंटरनेट सुविधाओं से लैस एक समर्पित कंप्यूटर प्रयोगशाला।' 
+                      : 'A dedicated computer laboratory equipped with modern computers and internet facilities.'}
+                  </p>
+                </div>
+              </div>
+              
+              <div className="bg-white rounded-lg overflow-hidden shadow-sm border border-amber-100">
+                <div className="h-48 overflow-hidden">
+                  <img src="/images/Gallery1.jpg" alt="Library" className="w-full h-full object-cover" />
+                </div>
+                <div className="p-5">
+                  <h4 className="text-lg font-semibold text-amber-800 mb-2">
+                    {isHindi ? 'पुस्तकालय' : 'Library'}
+                  </h4>
+                  <p className="text-gray-700">
+                    {isHindi 
+                      ? 'विभिन्न विषयों पर पुस्तकों का विशाल संग्रह, पढ़ने और अध्ययन के लिए एक शांत स्थान।' 
+                      : 'A vast collection of books on various subjects, a quiet place for reading and studying.'}
+                  </p>
+                </div>
+              </div>
+              
+              <div className="bg-white rounded-lg overflow-hidden shadow-sm border border-amber-100">
+                <div className="h-48 overflow-hidden">
+                  <img src="/images/Gallery3.jpg" alt="Playground" className="w-full h-full object-cover" />
+                </div>
+                <div className="p-5">
+                  <h4 className="text-lg font-semibold text-amber-800 mb-2">
+                    {isHindi ? 'खेल का मैदान' : 'Playground'}
+                  </h4>
+                  <p className="text-gray-700">
+                    {isHindi 
+                      ? 'विभिन्न खेलों और शारीरिक गतिविधियों के लिए विशाल खेल का मैदान।' 
+                      : 'A spacious playground for various sports and physical activities.'}
+                  </p>
+                </div>              </div>
+            </div>
+          </div>
+
+          {/* Recognitions & Achievements */}
+          <div className="mb-8">
+            <h3 className="text-xl md:text-2xl font-bold mb-6 border-l-4 border-amber-600 pl-3">
+              {isHindi ? 'मान्यताएं और उपलब्धियां' : 'Recognitions & Achievements'}
+            </h3>
+            
+            <div className="bg-gradient-to-r from-amber-50 to-amber-100 p-6 rounded-lg shadow-sm">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="text-lg font-semibold text-amber-800 mb-4 flex items-center">
+                    <span className="mr-2 text-2xl">🏆</span>
+                    {isHindi ? 'शैक्षिक उत्कृष्टता' : 'Academic Excellence'}
+                  </h4>
+                  <ul className="list-disc pl-6 space-y-2 text-gray-700">
+                    <li>
+                      {isHindi 
+                        ? '2023 में जिले में सर्वश्रेष्ठ बोर्ड परीक्षा परिणाम' 
+                        : 'Best board examination results in the district in 2023'}
+                    </li>
+                    <li>
+                      {isHindi 
+                        ? '95% से अधिक छात्रों ने हाई स्कूल और इंटरमीडिएट परीक्षाओं में प्रथम श्रेणी हासिल की' 
+                        : 'Over 95% students secured first division in High School and Intermediate examinations'}
+                    </li>
+                    <li>
+                      {isHindi 
+                        ? '2022 में राज्य स्तरीय विज्ञान प्रतियोगिता में 3 छात्राओं ने पुरस्कार जीते' 
+                        : '3 students won awards in State Level Science Competition in 2022'}
+                    </li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 className="text-lg font-semibold text-amber-800 mb-4 flex items-center">
+                    <span className="mr-2 text-2xl">🌟</span>
+                    {isHindi ? 'सरकारी मान्यताएं' : 'Government Recognitions'}
+                  </h4>
+                  <ul className="list-disc pl-6 space-y-2 text-gray-700">
+                    <li>
+                      {isHindi 
+                        ? 'उत्तर प्रदेश माध्यमिक शिक्षा परिषद द्वारा पूर्ण मान्यता' 
+                        : 'Full recognition by Uttar Pradesh Board of Secondary Education'}
+                    </li>
+                    <li>
+                      {isHindi 
+                        ? 'उत्तर प्रदेश सरकार द्वारा "ए" ग्रेड प्राप्त' 
+                        : '"A" grade certified by Government of Uttar Pradesh'}
+                    </li>
+                    <li>
+                      {isHindi 
+                        ? '2019 में स्वच्छ विद्यालय पुरस्कार प्राप्त' 
+                        : 'Received Clean School Award in 2019'}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div className="mt-6">
+                <h4 className="text-lg font-semibold text-amber-800 mb-4 flex items-center">
+                  <span className="mr-2 text-2xl">🏅</span>
+                  {isHindi ? 'खेल और अतिरिक्त गतिविधियाँ' : 'Sports & Extra-curricular'}
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <div className="text-3xl text-amber-600 font-bold">12</div>
+                    <p className="text-gray-700">
+                      {isHindi ? 'जिला स्तरीय खेल पुरस्कार' : 'District Level Sports Awards'}
+                    </p>
+                  </div>
+                  <div className="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <div className="text-3xl text-amber-600 font-bold">8</div>
+                    <p className="text-gray-700">
+                      {isHindi ? 'सांस्कृतिक प्रतियोगिता विजेता' : 'Cultural Competition Winners'}
+                    </p>
+                  </div>
+                  <div className="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <div className="text-3xl text-amber-600 font-bold">5</div>
+                    <p className="text-gray-700">
+                      {isHindi ? 'राज्य स्तरीय प्रतिभागी' : 'State Level Participants'}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

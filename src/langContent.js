@@ -1,11 +1,11 @@
 const langContent = {
-  en: {
-    // Navigation
+  en: {    // Navigation
     home: 'Home',
     about: 'About',
     admission: 'Admission',
     gallery: 'Gallery',
     academics: 'Academics',
+    facilities: 'Facilities',
     faculty: 'Faculty',
     notices: 'Notices',
     contact: 'Contact',
@@ -21,13 +21,26 @@ const langContent = {
     teacher: 'Teacher',
     admin: 'Admin',
     loginFailed: 'Login failed',
-    errorOccurred: 'An error occurred',
-
-    // Admin Dashboard
+    errorOccurred: 'An error occurred',    // Admin Dashboard
     manageNotices: 'Manage Notices',
     manageFaculty: 'Manage Faculty',
     manageGallery: 'Manage Gallery',
     manageAcademics: 'Manage Academic Content',
+    manageBackups: 'Manage Backups',
+    
+    // Backup Manager
+    backupManager: 'Backup Manager',
+    fullBackup: 'Full Backup',
+    fullBackupDescription: 'Create a complete backup of all school data including notices, faculty, and gallery images.',
+    createFullBackup: 'Create Full Backup',
+    customBackup: 'Custom Backup',
+    customBackupDescription: 'Specify collections to backup (comma-separated).',
+    createCustomBackup: 'Create Custom Backup',
+    collections: 'Collections',
+    scheduledBackups: 'Scheduled Backups',
+    scheduledBackupDescription: 'Set up automated backups on a schedule (coming soon).',
+    setupScheduledBackups: 'Setup Scheduled Backups',
+    creating: 'Creating...',
     addNotice: 'Add Notice',
     addFaculty: 'Add Faculty Member',
     title: 'Title',
@@ -77,13 +90,13 @@ const langContent = {
       message: 'You do not have permission to access this page.'
     }
   },
-  hi: {
-    // Navigation
+  hi: {    // Navigation
     home: 'होम',
     about: 'हमारे बारे में',
     admission: 'प्रवेश',
     gallery: 'गैलरी',
     academics: 'शैक्षणिक',
+    facilities: 'सुविधाएँ',
     faculty: 'शिक्षक',
     notices: 'सूचनाएं',
     contact: 'संपर्क करें',
@@ -99,13 +112,26 @@ const langContent = {
     teacher: 'शिक्षक',
     admin: 'प्रशासक',
     loginFailed: 'लॉगिन विफल रहा',
-    errorOccurred: 'एक त्रुटि हुई',
-
-    // Admin Dashboard
+    errorOccurred: 'एक त्रुटि हुई',    // Admin Dashboard
     manageNotices: 'सूचनाएं प्रबंधित करें',
     manageFaculty: 'शिक्षक प्रबंधित करें',
     manageGallery: 'गैलरी प्रबंधित करें',
     manageAcademics: 'शैक्षणिक सामग्री प्रबंधित करें',
+    manageBackups: 'बैकअप प्रबंधित करें',
+    
+    // Backup Manager
+    backupManager: 'बैकअप प्रबंधक',
+    fullBackup: 'पूर्ण बैकअप',
+    fullBackupDescription: 'सूचनाएं, शिक्षक और गैलरी छवियों सहित सभी स्कूल डेटा का एक पूर्ण बैकअप बनाएं।',
+    createFullBackup: 'पूर्ण बैकअप बनाएं',
+    customBackup: 'कस्टम बैकअप',
+    customBackupDescription: 'बैकअप करने के लिए कलेक्शन निर्दिष्ट करें (अल्पविराम से अलग)।',
+    createCustomBackup: 'कस्टम बैकअप बनाएं',
+    collections: 'कलेक्शन',
+    scheduledBackups: 'निर्धारित बैकअप',
+    scheduledBackupDescription: 'एक शेड्यूल पर स्वचालित बैकअप सेट करें (जल्द आ रहा है)।',
+    setupScheduledBackups: 'निर्धारित बैकअप सेटअप',
+    creating: 'बना रहा है...',
     addNotice: 'सूचना जोड़ें',
     addFaculty: 'शिक्षक जोड़ें',
     title: 'शीर्षक',
